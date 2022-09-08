@@ -13,6 +13,7 @@
     margin: 4px;
     cursor: pointer;
     user-select: none;
+    user-select: none;
 }
 
 .boton-contenedor:hover {

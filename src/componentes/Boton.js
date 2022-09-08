@@ -2,7 +2,7 @@
  import '../hojas-de-estilo/Boton.css';
 
  function Boton(props){
-
+    console.log(props)
     const esOperador = valor => {
         return isNaN(valor) && (valor !== '.') && (valor !== '=')
     };

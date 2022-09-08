@@ -3,13 +3,22 @@ import Boton from './componentes/Boton';
 import Pantalla from './componentes/Pantalla';
 import BotonClear from './componentes/BotonClear';
 import { useState } from 'react';
+import { evaluate } from 'mathjs'; //npm install mathjs para instalar fazendo e npm i para baixar todas as dependencias do projeto quando ele for baixado do repositório
 
 function App() {
 
-  const [input, setInput] = useState('')
+  const [input, setInput] = useState('');
 
   const agregarInput = val => {
-    setInput(input + val)
+    setInput(input + val);
+  };
+
+  const calcularResultado = () => {
+    if (input) {
+    setInput(evaluate(input));
+    } else {
+      alert("Por favor ingrese valores para realizar los cálculos.")
+    }
   };
 
   return (
@@ -17,7 +26,7 @@ function App() {
       <div className='contenedor-calculadora'>
         <Pantalla input={input} />
 
-        <div className='fila'>
+        <div className='fila'> 
           <Boton manejarClic={agregarInput}>1</Boton>
           <Boton manejarClic={agregarInput}>2</Boton>
           <Boton manejarClic={agregarInput}>3</Boton>
@@ -36,7 +45,7 @@ function App() {
           <Boton manejarClic={agregarInput}>*</Boton>
         </div>
         <div className='fila'>
-          <Boton manejarClic={agregarInput}>=</Boton>
+          <Boton manejarClic={calcularResultado}>=</Boton>
           <Boton manejarClic={agregarInput}>0</Boton>
           <Boton manejarClic={agregarInput}>.</Boton>
           <Boton manejarClic={agregarInput}>/</Boton>
